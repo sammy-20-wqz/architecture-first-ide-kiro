@@ -1,104 +1,112 @@
-# Implementation Tasks: DevForge Kiro Extension
+# Implementation Tasks: DevForge (Kiro Architecture Extension)
 
-## Phase 1: Layer 1 - Visual Overlay (30 minutes)
+---
 
-- [ ] 1.1 Create RiskScorePanel component
-  - [ ] 1.1.1 Render four risk score cards (scalability, overengineering, security, consistency)
-  - [ ] 1.1.2 Add color coding (green/yellow/red based on score)
-  - [ ] 1.1.3 Add gauge visualization for each score
-  - [ ] 1.1.4 Mock initial data
+## Phase 1 – Core Architecture Validation Engine
 
-- [ ] 1.2 Create MentorConsolePanel component
-  - [ ] 1.2.1 Render feedback items list
-  - [ ] 1.2.2 Group by severity (critical, warning, info)
-  - [ ] 1.2.3 Add expand/collapse for each item
-  - [ ] 1.2.4 Mock initial feedback data
+### Task 1.1 – Constraint Parsing Engine
+- Parse multiline constraint input into structured Constraint objects
+- Normalize and tokenize rules
+- Validate syntax within 1 second
 
-- [ ] 1.3 Create CostTickerStatusBar component
-  - [ ] 1.3.1 Render fixed bottom bar with cost estimate
-  - [ ] 1.3.2 Show cost trend indicator (up/down/stable)
-  - [ ] 1.3.3 Add expandable breakdown by service
-  - [ ] 1.3.4 Mock cost data
+### Task 1.2 – Static Code Validator
+- Detect:
+  - gRPC enforcement
+  - REST misuse
+  - Hardcoded credentials
+  - Microservices patterns
+- Return structured violations with severity
 
-- [ ] 1.4 Integrate panels with Kiro
-  - [ ] 1.4.1 Register left panel (RiskScorePanel)
-  - [ ] 1.4.2 Register right panel (MentorConsolePanel)
-  - [ ] 1.4.3 Register status bar (CostTickerStatusBar)
+### Task 1.3 – Risk Scoring Engine
+- Weighted severity scoring
+- Risk classification (LOW / MEDIUM / HIGH)
+- Scale-based architectural penalties
+- Response time < 5 seconds for 50 components
 
-## Phase 2: Layer 2 - Validation Hooks (60 minutes)
+---
 
-- [ ] 2.1 Implement DriftDetector
-  - [ ] 2.1.1 Create checkComponentBoundaries() method
-  - [ ] 2.1.2 Create checkCommunicationPatterns() method
-  - [ ] 2.1.3 Create checkLayerBoundaries() method
-  - [ ] 2.1.4 Calculate driftScore (0-100)
-  - [ ] 2.1.5 Return DriftResult with violations
+## Phase 2 – AWS Cost Whisperer (FR-11)
 
-- [ ] 2.2 Implement ConstraintValidator
-  - [ ] 2.2.1 Create parseConstraint() method
-  - [ ] 2.2.2 Create checkConstraint() method for each constraint type
-  - [ ] 2.2.3 Return ValidationResult with violations
-  - [ ] 2.2.4 Support protocol, performance, layer_boundary, security constraints
+### Task 2.1 – AWS Pricing Integration
+- Integrate AWS Price List API
+- Estimate monthly cost based on architecture components
 
-- [ ] 2.3 Implement RiskScorer
-  - [ ] 2.3.1 Create scoreScalability() method
-  - [ ] 2.3.2 Create scoreOverengineering() method
-  - [ ] 2.3.3 Create scoreSecurity() method
-  - [ ] 2.3.4 Create scoreConsistency() method
-  - [ ] 2.3.5 Return RiskScores object
+### Task 2.2 – Cost Gate System
+- Allow user-defined monthly budget threshold
+- Trigger modal warning if projected cost exceeds threshold
 
-- [ ] 2.4 Create Kiro Hook Integration
-  - [ ] 2.4.1 Create postToolUse hook for write operations
-  - [ ] 2.4.2 Trigger drift detection on code changes
-  - [ ] 2.4.3 Trigger constraint validation on code changes
-  - [ ] 2.4.4 Trigger risk scoring on code changes
-  - [ ] 2.4.5 Update Layer 1 panels with results
+### Task 2.3 – Real-Time Cost Updates
+- Recalculate cost within 5 seconds of architecture modification
 
-- [ ] 2.5 Create Mock Data Service
-  - [ ] 2.5.1 Mock AWS Cost API responses
-  - [ ] 2.5.2 Mock blueprint generation
-  - [ ] 2.5.3 Mock drift detection results
-  - [ ] 2.5.4 Mock security scanning results
+---
 
-## Phase 3: Layer 3 - Critical Gates (30 minutes)
+## Phase 3 – Chaos Monkey Agent (FR-12)
 
-- [ ] 3.1 Implement SecurityGateModal
-  - [ ] 3.1.1 Detect hardcoded credentials
-  - [ ] 3.1.2 Detect exposed endpoints
-  - [ ] 3.1.3 Detect unencrypted transmission
-  - [ ] 3.1.4 Render blocking modal with fix suggestions
-  - [ ] 3.1.5 Add override with justification
+### Task 3.1 – Failure Simulation Engine
+- Simulate:
+  - DB outage
+  - Service crash
+  - Queue overflow
+- Identify single points of failure
 
-- [ ] 3.2 Implement CostGateModal
-  - [ ] 3.2.1 Detect cost spikes > 50%
-  - [ ] 3.2.2 Detect cost > $1000/month
-  - [ ] 3.2.3 Render blocking modal with optimization suggestions
-  - [ ] 3.2.4 Add override with justification
+### Task 3.2 – Resilience Suggestions
+- Suggest:
+  - Load balancer
+  - SQS Dead Letter Queue
+  - Auto-scaling
+  - Redundancy patterns
 
-- [ ] 3.3 Implement DeploymentRiskGateModal
-  - [ ] 3.3.1 Check if any risk score > 80
-  - [ ] 3.3.2 Check for critical violations
-  - [ ] 3.3.3 Render blocking modal with remediation steps
-  - [ ] 3.3.4 Add override with justification
+---
 
-- [ ] 3.4 Wire up gates to validation pipeline
-  - [ ] 3.4.1 Trigger security gate after security scoring
-  - [ ] 3.4.2 Trigger cost gate after cost estimation
-  - [ ] 3.4.3 Trigger deployment risk gate before deployment
+## Phase 4 – Kiro Comprehension Validator (FR-13)
 
-## Post-MVP: Should Have Features
+### Task 4.1 – Mentor Console Generator
+- Generate 1-question “Pop Quiz” after architecture generation
 
-- [ ] 4.1 Failure Prediction Timeline (Feature 11)
-- [ ] 4.2 Argue With Me Mode (Feature 23)
-- [ ] 4.3 Anti-Vibe Critic (Feature 24)
-- [ ] 4.4 Smart Contract Vulnerability Scanner (Feature 38)
-- [ ] 4.5 On-Chain vs Off-Chain Optimizer (Feature 39)
-- [ ] 4.6 ML Pipeline Validator (Feature 41)
+### Task 4.2 – Comprehension Scoring
+- Track correct answers
+- Maintain “Comprehension Score”
+- Display feedback
 
-## Testing & Validation
+---
 
-- [ ] 5.1 Test Layer 1 components render correctly
-- [ ] 5.2 Test Layer 2 hooks trigger on code changes
-- [ ] 5.3 Test Layer 3 gates block on critical issues
-- [ ] 5.4 Test mock data flows through all layers
-- [ ] 5.5 Manual testing in Kiro IDE
+## Phase 5 – IDE Extension Integration
+
+### Task 5.1 – Kiro Extension Hook
+- Implement as non-invasive overlay
+- Use Kiro postToolUse hooks
+- No modification of core IDE files
+
+### Task 5.2 – UI Overlay System
+- Risk panel
+- Cost panel
+- Chaos simulation results panel
+- Quiz panel
+
+---
+
+## Phase 6 – Testing
+
+### Task 6.1 – Unit Tests
+- Validation engine ≥ 80% coverage
+
+### Task 6.2 – Integration Tests
+- End-to-end architecture flow tested
+
+### Task 6.3 – Performance Tests
+- Risk scoring within 5 seconds for 50 components
+
+---
+
+## Phase 7 – Demo Preparation
+
+### Task 7.1 – Demo Script
+- Define architecture
+- Trigger cost spike
+- Simulate failure
+- Answer pop quiz
+
+### Task 7.2 – Final Packaging
+- Clean README
+- Screenshots
+- Submission assets
