@@ -1,8 +1,8 @@
-# Requirements Document: Architecture-First IDE
+# Requirements Document: DevForge (Kiro Architecture Extension)
 
 ## Introduction
 
-The Architecture-First IDE is a web-based development environment that enforces architectural discipline by requiring developers to define system architecture, scale expectations, and constraints before writing code. The system prevents architectural drift, overengineering, and technical debt by validating code against user-defined architectural rules in real time, calculating risk scores, and providing structured feedback through a mentor console.
+The DevForge (Kiro Architecture Extension) is a web-based development environment that enforces architectural discipline by requiring developers to define system architecture, scale expectations, and constraints before writing code. The system prevents architectural drift, overengineering, and technical debt by validating code against user-defined architectural rules in real time, calculating risk scores, and providing structured feedback through a mentor console.
 
 ## Problem Statement
 
@@ -14,7 +14,7 @@ Modern software development often suffers from:
 - Difficulty detecting architectural violations until late in development
 - Accumulation of technical debt due to undisciplined coding practices
 
-The Architecture-First IDE addresses these problems by making architecture a first-class citizen in the development workflow, enforcing constraints automatically, and providing real-time feedback on architectural compliance.
+The DevForge (Kiro Architecture Extension) addresses these problems by making architecture a first-class citizen in the development workflow, enforcing constraints automatically, and providing real-time feedback on architectural compliance.
 
 ## Glossary
 
@@ -376,6 +376,37 @@ The IDE supports multiple categories of constraints:
 - Each project maintains isolated architecture data (no cross-contamination)
 - Active project indicator clearly displays current project name
 
+### FR-11: AWS Cost Whisperer (Cost Gate)
+
+**User Story:**  
+As a developer, I want to see real-time AWS cost estimates for my architecture so that I can avoid unexpected deployment costs.
+
+**Measurable Criteria:**
+- System estimates projected monthly AWS costs.
+- System displays warning if projected cost exceeds user-defined threshold.
+- Cost recalculates within 5 seconds after architecture modification.
+
+### FR-12: Chaos Monkey Agent (Resilience Testing)
+
+**User Story:**  
+As a developer, I want the system to simulate service failures so that I can verify architectural resilience.
+
+**Measurable Criteria:**
+- System detects single points of failure.
+- System suggests mitigation patterns (e.g., adding load balancer or dead-letter queue).
+- System generates resilience risk score.
+
+### FR-13: Kiro Comprehension Validator (Education Mode)
+
+**User Story:**  
+As a student or junior developer, I want the IDE to quiz me about my architecture so I understand why design decisions matter.
+
+**Measurable Criteria:**
+- System generates at least one architecture-related quiz question.
+- System tracks comprehension score.
+- System provides explanation for correct answers.
+
+
 #### Acceptance Criteria
 
 1. THE IDE SHALL support multiple projects simultaneously
@@ -530,7 +561,7 @@ The IDE supports multiple categories of constraints:
 
 ## Success Criteria
 
-The Architecture-First IDE will be considered successful when:
+The DevForge (Kiro Architecture Extension) will be considered successful when:
 
 1. Developers can define architecture and constraints within 15 minutes for typical projects
 2. Architectural drift is detected with 90% accuracy for common violation patterns
